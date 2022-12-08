@@ -3,6 +3,9 @@ import Head from 'next/head';
 import React from 'react';
 import './styles.css';
 
+import { trpc } from '../utils/trpc';
+
+
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -16,4 +19,4 @@ function CustomApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default CustomApp;
+export default trpc.withTRPC(CustomApp);
