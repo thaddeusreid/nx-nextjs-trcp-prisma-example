@@ -2,10 +2,10 @@
  *
  * This is an example router, you can delete this file and then update `../pages/api/trpc/[trpc].tsx`
  */
-import { Prisma } from '@prisma/client';
+// import { Prisma } from '@prisma/client';
 import { z } from 'zod';
 
-import { prisma } from '../prisma';
+// import { prisma } from '../prisma';
 import { router, procedure } from '../trpc';
 
 /**
@@ -13,28 +13,29 @@ import { router, procedure } from '../trpc';
  * It's important to always explicitly say which fields you want to return in order to not leak extra information
  * @see https://github.com/prisma/prisma/issues/9353
  */
-const defaultPostSelect = Prisma.validator<Prisma.PostSelect>()({
-  id: true,
-  title: true,
-  text: true,
-  createdAt: true,
-  updatedAt: true,
-});
+// const defaultUserSelect = Prisma.validator<Prisma.UserSelect>()({
+//   id: true,
+//   email: true,
+//   password: false,
+//   createdAt: true,
+//   updatedAt: true,
+// });
 
-export const postRouter = router({
-  add: procedure
+export const userRouter = router({
+  user: procedure
     .input(
       z.object({
         id: z.string().uuid().optional(),
-        title: z.string().min(1).max(32),
-        text: z.string().min(1),
+        email: z.string().email(),
+        password: z.string().min(8).max(64),
       }),
     )
     .mutation(async ({ input }) => {
-      const post = await prisma.post.create({
-        data: input,
-        select: defaultPostSelect,
-      });
-      return post;
+      console.log("mutaion input!!", input);
+      // const user = await prisma.user.create({
+      //   data: input,
+      //   select: defaultUserSelect,
+      // });
+      return input;
     }),
 });
