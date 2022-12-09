@@ -19,11 +19,11 @@ Hello, thanks for taking a look at my example of a monorepo architectuere contai
 
 ### Steps I took to get this up and running:
 1. `npx create-nx-workspace boundless-sample --packageManager=npm`
-  2. Familiarize myself with `nx` project
+    2. Familiarize myself with `nx` project
 3. `npx nx serve auth-example`
 4. `npm install -D tailwindcss postcss autoprefixer --save-exact`
 5. Investigate lint warning from Typescript: “refers to a UMD global, but the current file is a module. Consider adding an import instead”
-	1. Problem is resolved by setting `tsconfig.json -> jsx: “react-jsx”`, but `next.js` is picky on this setting and sets it back.
+    1. Problem is resolved by setting `tsconfig.json -> jsx: “react-jsx”`, but `next.js` is picky on this setting and sets it back.
 6. Built initial UI
 7. Initialized `api` lib: `npx nx g library api`
 8. Installed tRPC into `api` and Next app.
