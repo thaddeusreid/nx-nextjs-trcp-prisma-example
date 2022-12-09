@@ -10,7 +10,6 @@ services:
     env_file:
       - .env
     environment:
-      POSTGRES_DB: boundess_db
       PGDATA: /var/lib/postgresql/data/boundless_db
 
 volumes:
