@@ -7,7 +7,7 @@
 ## Notes from Thaddeus
 Hello, thanks for taking a look at my example of a monorepo architectuere containing a Next.js React application and two libraries: (1) A tRPC server that connects to a PostgreSQL database using the (2) Prisma ORM.
 
-Here are some steps you can use to explore the project:
+### Steps to Initialize and Explore the Project
 * `npm install`: Install all dependencies
 * `cp libs/prisma/.env.example libs/prisma/.env`: Duplicate `.env.example` to `.env` and provide a `POSTGRES_PASSWORD` for the database initialization.
 * `cd libs/prisma && docker-compose up -d`: Start the PostgreSQL database
@@ -17,9 +17,9 @@ Here are some steps you can use to explore the project:
 * Fill out Login form and click "Login"
 * `npx prisma studio` to open the PostgreSQL database viewer, and confirm that the User table has been created! 
 
-Here are the steps I used to get this up and running:
+### Steps I took to get this up and running:
 1. `npx create-nx-workspace boundless-sample --packageManager=npm`
-2. 2. Familiarize myself with `nx` project
+  2. Familiarize myself with `nx` project
 3. `npx nx serve auth-example`
 4. `npm install -D tailwindcss postcss autoprefixer --save-exact`
 5. Investigate lint warning from Typescript: “refers to a UMD global, but the current file is a module. Consider adding an import instead”
@@ -34,6 +34,11 @@ Here are the steps I used to get this up and running:
 13. Configured and connected Prisma
 14. Prisma Migrate + Generate: `npx prisma migrate dev --name init`
 15. Tested to confirm functionality. 
+
+### Resources I used:
+* https://nx.dev/getting-started/intro
+* https://trpc.io/docs/nextjs
+* https://www.prisma.io/docs/getting-started
 
 ## Development server
 
