@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@boundless-sample/api": ["libs/api/src/index.ts"],
-      "@boundless-sample/prisma": ["libs/prisma/src/index.ts"]
+      "@boundless-sample/api": ["../../libs/api/src/index.ts"],
+      "@boundless-sample/prisma": ["../../libs/prisma/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  database:
+    image: "postgres:15.1"
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: boundess_db
+      PGDATA: /var/lib/postgresql/data/boundless_db
+
+volumes:
+  db:

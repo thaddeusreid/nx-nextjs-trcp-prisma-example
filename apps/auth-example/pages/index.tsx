@@ -1,19 +1,24 @@
 import React, { FormEvent } from "react";
 import { trpc } from "../utils/trpc";
 
+interface FormData {
+  elements: Array<{ value: string }>
+}
+
 export function Form() {
   const mutation = trpc.user.useMutation();
 
-  const handleLogin = (event: FormEvent) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const { elements } = event.target as typeof event.target & FormData;
     event.preventDefault();
     mutation.mutate({
-      email: event.target.elements[0].value,
-      password: event.target.elements[1].value,
+      email: elements[0].value,
+      password: elements[1].value,
     });
   };
 
   return (
-    <form onSubmit={handleLogin} className="grid">
+    <form onSubmit={handleSubmit} className="grid">
       <label htmlFor="email" className="mb-2">
         Email
       </label>
@@ -24,7 +29,7 @@ export function Form() {
       </label>
       <input type="password" name="Password" className="max-w-full rounded-lg mb-8" />
 
-      <input type="submit" value="Login" className="bg-red rounded-lg text-white py-3" />
+      <input type="submit" value="Login" className="bg-red rounded-lg text-white py-3 hover:cursor-pointer" />
     </form>
   )
 }
