@@ -9,7 +9,7 @@ Hello, thanks for taking a look at my example of a monorepo architectuere contai
 
 ### Steps to Initialize and Explore the Project
 * `npm install`: Install all dependencies
-* `cp libs/prisma/.env.example libs/prisma/.env`: Duplicate `.env.example` to `.env` and provide a `POSTGRES_PASSWORD` for the database initialization.
+* `cp libs/prisma/.env.example libs/prisma/.env`: Duplicate `.env.example` to `.env`, then edit `.env` to provide a `POSTGRES_PASSWORD` for the database initialization. Be sure to update the password value in `DATABASE_URL`.
 * `cd libs/prisma && docker-compose up -d`: Start the PostgreSQL database
 * `npx prisma migrate dev`: Run the first migration to create a DB with the `User` table.
 * `npx nx serve auth-example`: Build the Next.js app in development mode locally
